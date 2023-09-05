@@ -436,6 +436,7 @@ namespace OpenWeatherMap.Services
             string zipCode,
             string stateCode = "",
             string countryCode = "",
+            int cnt = 2,
             Action<HttpClientHandler> httpClientHandler = null)
         {
             if (string.IsNullOrWhiteSpace(zipCode))
@@ -457,6 +458,8 @@ namespace OpenWeatherMap.Services
                 sBuilder.Append(query);
                 sBuilder.Append("&appid=");
                 sBuilder.Append(_config.ApiKey);
+                // Number of days returned
+                sBuilder.Append($"&cnt={cnt}");
 
                 var httpResponse = await _httpClient.GetAsync(sBuilder.ToString());
                 httpResponse.EnsureSuccessStatusCode();
