@@ -249,6 +249,11 @@ namespace OpenWeatherMap.Services
             }
         }
 
+        public async Task Test()
+        {
+            
+        }
+
         public void Dispose()
         {
             if (_disposed)
