@@ -2,7 +2,7 @@
 
 namespace OpenWeatherMap.Models
 {
-    public class CurrentWeatherModel
+    public struct CurrentWeatherModel
 {
     public Coord coord { get; set; }
     public List<Weather> weather { get; set; }
@@ -19,7 +19,7 @@ namespace OpenWeatherMap.Models
     public int cod { get; set; }
 }
 
-public class WeatherForecastModel
+public struct WeatherForecastModel
 {
     public string cod { get; set; }
     public int message { get; set; }
@@ -27,7 +27,7 @@ public class WeatherForecastModel
     public List<List> list { get; set; }
 }
 
-public class List
+public struct List
 {
     public int dt { get; set; }
     public WeatherForecastMain main { get; set; }
@@ -41,7 +41,7 @@ public class List
     public string dt_txt { get; set; }
 }
 
-public class City
+public struct City
 {
     public int id { get; set; }
     public string name { get; set; }
@@ -53,13 +53,13 @@ public class City
     public int sunset { get; set; }
 }
 
-public class Coord
+public struct Coord
 {
     public double lon { get; set; }
     public double lat { get; set; }
 }
 
-public class CurrentWeatherMain
+public struct CurrentWeatherMain
 {
     public double temp { get; set; }
     public double feels_like { get; set; }
@@ -69,7 +69,7 @@ public class CurrentWeatherMain
     public int humidity { get; set; }
 }
 
-public class WeatherForecastMain
+public struct WeatherForecastMain
 {
 public double temp { get; set; }
 public double feels_like { get; set; }
@@ -82,7 +82,7 @@ public double humidity { get; set; }
 public double temp_kf { get; set; }
 }
 
-public class Weather
+public struct Weather
 {
     public int id { get; set; }
     public string main { get; set; }
@@ -90,18 +90,18 @@ public class Weather
     public string icon { get; set; }
 }
 
-public class Clouds
+public struct Clouds
 {
     public int all { get; set; }
 }
 
-public class Wind
+public struct Wind
 {
     public double speed { get; set; }
     public int deg { get; set; }
 }
 
-public class WeatherForecastWind
+public struct WeatherForecastWind
 {
     public double speed { get; set; }
     public int deg { get; set; }
@@ -109,12 +109,12 @@ public class WeatherForecastWind
     
 }
 
-public class Rain
+public struct Rain
 {
     public double _3h { get; set; }
 }
 
-public class CurrentWeatherSys
+public struct CurrentWeatherSys
 {
     public int Type { get; set; }
     public int Id { get; set; }
@@ -123,7 +123,7 @@ public class CurrentWeatherSys
     public int Sunset { get; set; }
 }
 
-public class WeatherForecastSys
+public struct WeatherForecastSys
 {
     public string Pod { get; set; }
 }
