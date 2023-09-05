@@ -16,7 +16,7 @@ namespace TestingService
                 // var result = await service.GetCurrentWeatherByCityNameAsync("London");
                 // var result = await service.GetCurrentWeatherByGeoCoordinatesAsync(44.34, 10.99);
                 // var result = await service.GetForecastByZipCodeAsync("94040");
-                var result = await service.GetCurrentWeatherByCityIdAsync(2172797);
+                var result = await service.GetCurrentWeatherByCityIdAsync(2172797, "ar");
                 Console.WriteLine(JsonSerializer.Serialize(result));
             }
             catch (Exception ex)

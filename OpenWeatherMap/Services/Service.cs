@@ -146,7 +146,8 @@ namespace OpenWeatherMap.Services
         }
 
         public async Task<CurrentWeatherModel> GetCurrentWeatherByCityIdAsync(
-            int cityId,
+            int cityId, 
+            string lang = "en",
             Action<HttpClientHandler> httpClientHandler = null)
         {
             try
@@ -154,6 +155,8 @@ namespace OpenWeatherMap.Services
                 var sBuilder = new StringBuilder();
                 sBuilder.Append("weather?id=");
                 sBuilder.Append(cityId);
+                sBuilder.Append("&lang=");
+                sBuilder.Append(lang);
                 sBuilder.Append("&appid=");
                 sBuilder.Append(_config.ApiKey);
 
@@ -189,6 +192,7 @@ namespace OpenWeatherMap.Services
                 throw new Exception("There was a problem with the HTTP request.", ex);
             }
         }
+
 
         public async Task<WeatherForecastModel> GetForecastByZipCodeAsync(
             string zipCode,
@@ -249,10 +253,6 @@ namespace OpenWeatherMap.Services
             }
         }
 
-        public async Task Test()
-        {
-            
-        }
 
         public void Dispose()
         {
