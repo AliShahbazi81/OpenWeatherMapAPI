@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenWeatherMap", "OpenWeatherMap\OpenWeatherMap.csproj", "{3AE9BDEF-0A91-4288-B6EC-9AC3AD1FBCEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingService", "TestingService\TestingService.csproj", "{1D12C175-07DA-4523-80D6-94BC6C006786}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AE9BDEF-0A91-4288-B6EC-9AC3AD1FBCEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AE9BDEF-0A91-4288-B6EC-9AC3AD1FBCEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AE9BDEF-0A91-4288-B6EC-9AC3AD1FBCEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AE9BDEF-0A91-4288-B6EC-9AC3AD1FBCEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D12C175-07DA-4523-80D6-94BC6C006786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D12C175-07DA-4523-80D6-94BC6C006786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D12C175-07DA-4523-80D6-94BC6C006786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D12C175-07DA-4523-80D6-94BC6C006786}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
