@@ -30,6 +30,7 @@ namespace OpenWeatherMap.Services
     // -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ Current -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
         public async Task<CurrentWeatherModel> GetCurrentWeatherByCityNameAsync(
             string city,
+            string units = "",
             Action<HttpClientHandler> httpClientHandler = null)
         {
             if (string.IsNullOrWhiteSpace(city))
@@ -42,6 +43,9 @@ namespace OpenWeatherMap.Services
                 sBuilder.Append(city);
                 sBuilder.Append("&appid=");
                 sBuilder.Append(_config.ApiKey);
+                // Imperial or metric
+                // if(!string.IsNullOrEmpty(units))
+                //     sBuilder.Append($"&units={units}");
 
                 var httpResponse = await _httpClient.GetAsync(sBuilder.ToString());
                 httpResponse.EnsureSuccessStatusCode();
@@ -100,6 +104,7 @@ namespace OpenWeatherMap.Services
         public async Task<CurrentWeatherModel> GetCurrentWeatherByGeoCoordinatesAsync(
             double latitude,
             double longitude,
+            string units = "",
             Action<HttpClientHandler> httpClientHandler = null)
         {
             try
@@ -111,6 +116,9 @@ namespace OpenWeatherMap.Services
                 sBuilder.Append(longitude);
                 sBuilder.Append("&appid=");
                 sBuilder.Append(_config.ApiKey);
+                // Imperial or metric
+                if(!string.IsNullOrEmpty(units))
+                    sBuilder.Append($"&units={units}");
 
                 var httpResponse = await _httpClient.GetAsync(sBuilder.ToString());
                 httpResponse.EnsureSuccessStatusCode();
@@ -148,6 +156,7 @@ namespace OpenWeatherMap.Services
         public async Task<CurrentWeatherModel> GetCurrentWeatherByCityIdAsync(
             int cityId, 
             string lang = "en",
+            string units = "",
             Action<HttpClientHandler> httpClientHandler = null)
         {
             try
@@ -159,6 +168,9 @@ namespace OpenWeatherMap.Services
                 sBuilder.Append(lang);
                 sBuilder.Append("&appid=");
                 sBuilder.Append(_config.ApiKey);
+                // Imperial or metric
+                // if(!string.IsNullOrEmpty(units))
+                //     sBuilder.Append($"&units={units}");
 
                 var httpResponse = await _httpClient.GetAsync(sBuilder.ToString());
                 httpResponse.EnsureSuccessStatusCode();
@@ -198,6 +210,8 @@ namespace OpenWeatherMap.Services
     public async Task<WeatherForecastModel> Paid_GetFourDayHourlyWeatherForecastByGeoLocationAsync(
             double latitude,
             double longitude,
+            int cnt = 2,
+            string units = "",
             Action<HttpClientHandler> httpClientHandler = null)
         {
             try
@@ -209,6 +223,11 @@ namespace OpenWeatherMap.Services
                 sBuilder.Append(longitude);
                 sBuilder.Append("&appid=");
                 sBuilder.Append(_config.ApiKey);
+                // Number of days returned
+                sBuilder.Append($"&cnt={cnt}");
+                // Imperial or metric
+                if(!string.IsNullOrEmpty(units))
+                    sBuilder.Append($"&units={units}");
 
                 var httpResponse = await _httpClient.GetAsync(sBuilder.ToString());
                 httpResponse.EnsureSuccessStatusCode();
@@ -247,6 +266,8 @@ namespace OpenWeatherMap.Services
         string city,
         string stateCode = "",
         string countryCode = "",
+        int cnt = 2,
+        string units = "",
         Action<HttpClientHandler> httpClientHandler = null)
     {
         if (string.IsNullOrWhiteSpace(city))
@@ -273,6 +294,11 @@ namespace OpenWeatherMap.Services
 
                 sBuilder.Append("&appid=");
                 sBuilder.Append(_config.ApiKey);
+                // Number of days returned
+                sBuilder.Append($"&cnt={cnt}");
+                // Imperial or metric
+                if(!string.IsNullOrEmpty(units))
+                    sBuilder.Append($"&units={units}");
 
                 var httpResponse = await _httpClient.GetAsync(sBuilder.ToString());
                 httpResponse.EnsureSuccessStatusCode();
@@ -331,6 +357,8 @@ namespace OpenWeatherMap.Services
     public async Task<WeatherForecastModel> Paid_GetFourDayHourlyWeatherForecastByCityIdAsync(
             int cityId, 
             string lang = "en",
+            int cnt = 2,
+            string units = "",
             Action<HttpClientHandler> httpClientHandler = null)
         {
             try
@@ -342,6 +370,11 @@ namespace OpenWeatherMap.Services
                 sBuilder.Append(lang);
                 sBuilder.Append("&appid=");
                 sBuilder.Append(_config.ApiKey);
+                // Number of days returned
+                sBuilder.Append($"&cnt={cnt}");
+                // Imperial or metric
+                if(!string.IsNullOrEmpty(units))
+                    sBuilder.Append($"&units={units}");
 
                 var httpResponse = await _httpClient.GetAsync(sBuilder.ToString());
                 httpResponse.EnsureSuccessStatusCode();
@@ -379,6 +412,8 @@ namespace OpenWeatherMap.Services
     public async Task<WeatherForecastModel> Paid_GetFourDayHourlyWeatherForecastByZipCodeAsync(
             string zipCode,
             string countryCode = "",
+            int cnt = 2,
+            string units = "",
             Action<HttpClientHandler> httpClientHandler = null)
         {
             if (string.IsNullOrWhiteSpace(zipCode))
@@ -398,6 +433,11 @@ namespace OpenWeatherMap.Services
                 sBuilder.Append(query);
                 sBuilder.Append("&appid=");
                 sBuilder.Append(_config.ApiKey);
+                // Number of days returned
+                sBuilder.Append($"&cnt={cnt}");
+                // Imperial or metric
+                if(!string.IsNullOrEmpty(units))
+                    sBuilder.Append($"&units={units}");
 
                 var httpResponse = await _httpClient.GetAsync(sBuilder.ToString());
                 httpResponse.EnsureSuccessStatusCode();
@@ -437,6 +477,7 @@ namespace OpenWeatherMap.Services
             string stateCode = "",
             string countryCode = "",
             int cnt = 2,
+            string units = "",
             Action<HttpClientHandler> httpClientHandler = null)
         {
             if (string.IsNullOrWhiteSpace(zipCode))
@@ -460,6 +501,9 @@ namespace OpenWeatherMap.Services
                 sBuilder.Append(_config.ApiKey);
                 // Number of days returned
                 sBuilder.Append($"&cnt={cnt}");
+                // Imperial or metric
+                if(!string.IsNullOrEmpty(units))
+                    sBuilder.Append($"&units={units}");
 
                 var httpResponse = await _httpClient.GetAsync(sBuilder.ToString());
                 httpResponse.EnsureSuccessStatusCode();
